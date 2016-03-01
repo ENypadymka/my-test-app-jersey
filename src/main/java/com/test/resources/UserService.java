@@ -11,9 +11,9 @@ import java.util.List;
 
 @Path("/users")
 public class UserService {
-    UserDao dao = new UserDao();
+    private UserDao dao = new UserDao();
 
-    @PUT
+    @GET
     @Path("/addUser/{firstName}/{lastName}")
     public void addUser(@PathParam("firstName") String firstName, @PathParam("lastName") String lastName) {
         User user = new User();
@@ -25,7 +25,6 @@ public class UserService {
 
     @GET
     public List<User> getUsers() {
-        System.out.println("Users List: " + getUsers());
         return dao.getAllUsers();
     }
 }
