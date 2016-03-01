@@ -9,30 +9,10 @@ import java.util.List;
 
 
 public class UserDao {
-    DbConnectionSettings dbConn;
     Connection connection;
 
-
     public UserDao() {
-        dbConn = new DbConnectionSettings();
-        connect();
-    }
-
-    private void connect() {
-        dbConn.getDBConnection();
-        connection = dbConn.getDBConnection();
-    }
-
-    public void createSchema() {
-        PreparedStatement prepStmt = null;
-        try {
-            String cSQL = "CREATE DATABASE dbusers";
-            prepStmt = connection.prepareStatement(cSQL);
-            prepStmt.executeUpdate();
-        } catch (SQLException ex) {
-            prepStmt = null;
-            ex.printStackTrace();
-        }
+        connection = new DbConnector().getDBConnection();
     }
 
     public void addUser(User user) {

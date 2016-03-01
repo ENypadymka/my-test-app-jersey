@@ -11,6 +11,6 @@ import javax.ws.rs.ApplicationPath;
 public class RestConfig extends ResourceConfig {
 
     public RestConfig() {
-        packages("com.test.resources", "com.test.config", "com.test.data");
+        packages("com.test.resources");
     }
 }
